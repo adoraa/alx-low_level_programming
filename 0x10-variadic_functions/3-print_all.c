@@ -33,7 +33,7 @@ void print_all(const char * const format, ...)
 					printf("%s", s);
 					break;
 				}
-				printf("nil");
+				printf("%p", s);
 				break;
 			default:
 				count = 0;
