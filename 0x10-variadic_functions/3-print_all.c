@@ -18,13 +18,13 @@ void print_all(const char * const format, ...)
 		switch (format[i])
 		{
 			case 'c':
-				printf("%c", va_arg(nList, char));
+				printf("%c", va_arg(nList, int));
 				break;
 			case 'i':
 				printf("%i", va_arg(nList, int));
 				break;
 			case 'f':
-				printf("%f", va_arg(nList, float));
+				printf("%f", va_arg(nList, double));
 				break;
 			case 's':
 				s = va_arg(nList, char *);
