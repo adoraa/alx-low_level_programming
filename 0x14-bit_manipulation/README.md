@@ -9,3 +9,5 @@
 5. A function that returns the number of bits you would need to flip to get from one number to another.
 
 ### Advanced tasks
+6. A function that checks the endianness.
+7.  Crackme3 - Find the password for crackme
