@@ -25,17 +25,7 @@ void print_binary(unsigned long int n)
 		}
 		else if (i)
 			_putchar('0');
-		if (i)
-			bnr >>= 1;
-		else
-		{
-			bnr >>= 1;
-			if (bnr == 0)
-			{
-				_putchar('0');
-				return;
-			}
-		}
+		bnr >>= 1;
 	}
 	_putchar('\n');
 }
