@@ -6,19 +6,12 @@
  */
 void print_binary(unsigned long int n)
 {
-	int bnr[64], i = 0;
-
 	if (!n)
-		_putchar(0);
+		_putchar('0');
 	while (n)
 	{
-		bnr[i++] = n & 1;
+		_putchar((n & 1) + '0');
 		n >>= 1;
-	}
-	while (i >= 0)
-	{
-		_putchar(bnr[i] + '0');
-		i--;
 	}
 	_putchar('\n');
 }
