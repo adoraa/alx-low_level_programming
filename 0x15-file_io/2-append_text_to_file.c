@@ -1,5 +1,19 @@
 #include "main.h"
 /**
+ * _strlen - returns string length
+ * @s: string to be checked
+ * Return: length of string
+ */
+int _strlen(char *s)
+{
+	int len = 0;
+
+	for (; s[len] != '\0'; len++)
+		;
+	return (len);
+}
+
+/**
  * append_text_to_file - appends text at the end of a file
  * @filename: filename
  * @text_content: a NULL terminated string to write to the file
