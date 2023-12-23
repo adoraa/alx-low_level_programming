@@ -4,7 +4,7 @@
  * @s: string to be checked
  * Return: length of string
  */
-int _strlen(char *s)
+int _strlen(const char *s)
 {
 	int len = 0;
 
@@ -28,7 +28,7 @@ int create_file(const char *filename, char *text_content)
 	fd = open(filename, O_CREAT | O_WRONLY | O_TRUNC, 0600);
 	if (fd == -1)
 		return (-1);
-	if (!text_content)
+	if (text_content)
 	{
 		writeBytes = write(fd, text_content, _strlen(text_content));
 		if (writeBytes == -1)
@@ -36,7 +36,11 @@ int create_file(const char *filename, char *text_content)
 			close(fd);
 			return (-1);
 		}
+	} else
+	{
+		close(fd);
+		return (-1);
 	}
 	close(fd);
-	return (-1);
+	return (1);
 }
