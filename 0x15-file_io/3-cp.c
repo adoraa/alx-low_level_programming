@@ -21,6 +21,7 @@ void error_handler(int cmd, const char *msg)
 int main(int argc, char *argv[])
 {
 	char *file_from, *file_to;
+	int fd_from, fd_to;
 	char buffer[BUFFER_SIZE];
 	ssize_t readBytes, writeBytes;
 
@@ -28,14 +29,14 @@ int main(int argc, char *argv[])
 		error_handler(97, "Usage: cp file_from file_to");
 	file_from = argv[1];
 	file_to = argv[2];
-	int fd_from = open(file_from, O_RDONLY);
+	fd_from = open(file_from, O_RDONLY);
 
 	if (fd_from == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
 		exit(98);
 	}
-	int fd_to = open(file_to, O_WRONLY | O_CREAT | O_TRUNC, 0664);
+	fd_to = open(file_to, O_WRONLY | O_CREAT | O_TRUNC, 0664);
 
 	if (fd_to == -1)
 	{
