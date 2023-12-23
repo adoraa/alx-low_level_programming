@@ -24,12 +24,12 @@ int append_text_to_file(const char *filename, char *text_content)
 	int fd;
 	ssize_t writeBytes;
 
-	if (!filename | !text_content)
+	if (!filename || !text_content)
 		return (-1);
 	fd = open(filename, O_WRONLY | O_APPEND);
 	if (fd == -1)
 		return (-1);
-	if (_strlen(text_content) > 0)
+	if (text_content[0] != '\0')
 	{
 		writeBytes = write(fd, text_content, _strlen(text_content));
 		if (writeBytes == -1)
