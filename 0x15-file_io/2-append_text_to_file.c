@@ -4,7 +4,7 @@
  * @s: string to be checked
  * Return: length of string
  */
-int _strlen(char *s)
+int _strlen(const char *s)
 {
 	int len = 0;
 
@@ -29,11 +29,14 @@ int append_text_to_file(const char *filename, char *text_content)
 	fd = open(filename, O_WRONLY | O_APPEND);
 	if (fd == -1)
 		return (-1);
-	writeBytes = write(fd, text_content, _strlen(text_content));
-	if (writeBytes == -1)
+	if (_strlen(text_content) > 0)
 	{
-		close(fd);
-		return (-1);
+		writeBytes = write(fd, text_content, _strlen(text_content));
+		if (writeBytes == -1)
+		{
+			close(fd);
+			return (-1);
+		}
 	}
 	close(fd);
 	return (1);
