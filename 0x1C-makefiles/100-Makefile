@@ -1,8 +1,8 @@
 CC = gcc
+SRC = school.c main.c
+OBJ = $(SRC:.c=.o)
 NAME = school
 CFLAGS = -Wall -Werror -Wextra -pedantic
-SRC = $(wildcard *.c)
-OBJ = $(SRC:.c=.o)
 RM = /bin/rm
 
 all: m.h $(OBJ)
